@@ -1,3 +1,36 @@
+var body = document.querySelector("body")
+var cursor = document.querySelector(".cursor")
+
+body.addEventListener("mousemove", function (dets) {
+  gsap.to(cursor, {
+    x: dets.x - 5,
+    y: dets.y - 2,
+    // duration:0.5,
+  });
+});
+
+
+var zoom = document.querySelectorAll("button ,h1");
+
+function ButtonEnter() {
+  gsap.to(cursor, {
+    scale: 4,
+    opacity : 0.8,
+  });
+}
+
+function ButtonLeave() {
+  gsap.to(cursor, {
+    scale: 1,
+    opacity : 1,
+  });
+}
+
+zoom.forEach((el) => {
+  el.addEventListener("mouseenter", ButtonEnter);
+  el.addEventListener("mouseleave", ButtonLeave);
+});
+
 // Initialize a new Lenis instance for smooth scrolling
 const lenis = new Lenis();
 
@@ -38,7 +71,7 @@ tl.to(".preloder",{
 })
 
 .from (".navbar",{
-    duration:1,
+    duration:0.8,
     y:"-100%"
 });
 
@@ -53,8 +86,9 @@ var splitedText = h1Text.split("")
 
 var clutter = ""
 splitedText.forEach(function(e,index){
- if(index){
+ if(e){
   clutter += `<span class = "a">${e}</span>`
+  console.log(clutter);
  }
    
 })
@@ -66,14 +100,40 @@ breackTheText()
 
 
 
-gsap.from("h1 .a",{
-  y:40,
+
+/////////////////////////////////
+const breackText = ()=>{
+  var h1 = document.querySelector(".heroHeading2")
+var h1Text = h1.textContent
+// var h1Text = document.querySelector("h1").textContent
+
+var splitedText = h1Text.split("")
+
+var clutter = ""
+splitedText.forEach(function(e,index){
+ if(e){
+  clutter += `<span class = "a">${e}</span>`
+  console.log(clutter);
+ }
+   
+})
+
+h1.innerHTML = clutter
+}
+
+breackText()
+
+tl.from("h1 .a",{
+  x:100,
   duration:0.5,
   delay:0.5,
   stagger:0.15,
   opacity:0,
+  ease:"power2.out",
 
 })
+
+
 
 // tl.to (paths,{
 //     y:0,
@@ -163,12 +223,26 @@ gsap.to(texts, {
   scrollTrigger: {
     trigger: ".page2",
 
-    start: "top 80%",
-    end:"top 60%",
+    start: "top 50%",
+    end:"top 40%",
     toggleActions: "play none none none",
     scrub:1,
   },
 });
+
+gsap.from(".para ,.serviText2",{
+  y:100,
+  opacity:0,
+  stagger: 0.2,
+  duration: 1.5,
+  ease: "power4.out",
+  scrollTrigger: {
+    trigger: ".page2",
+    start: "top 38%",
+    end:"top 32%",
+    scrub:1,
+  },
+})
 
 gsap.to(".ek", {
   duration: 3,

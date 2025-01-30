@@ -12,12 +12,24 @@
     box-sizing: border-box;
     font-family: "Montreal Regular";
     text-decoration: none;
+    cursor: none;
 }
 
 html, body {
     width: 100%;
     height: 100%;
     background-color: rgb(232 232 227/1);
+}
+
+.cursor {
+  width: 15px;
+  height: 15px;
+  position: fixed;
+  border-radius: 50%;
+  pointer-events:none;
+  mix-blend-mode: difference;
+  z-index: 5000;
+  background-color: rgb(118, 252, 252);
 }
 
 .preloder {
@@ -112,14 +124,26 @@ header .menu a {
     padding-right: clamp(2.25rem,2.1786rem + 0.3517vi,2.5rem);
 }
 
+
+.top{
+  display: flex;
+  flex-wrap: wrap;
+  gap:40px;
+ 
+}
+
 .page .top h1 {
     text-wrap: balance;
     line-height: 1;
     letter-spacing: -0.025em;
     /* opacity: 0; */
-    font-size: 140px;
+    /* font-size: 140px; */
+    font-size: clamp(9rem , 0.9286rem + 00.3517vi , 1.25rem);
     margin-top: 2rem;
     text-transform: uppercase;
+}
+.page .top h1 span {
+  display: inline-block;
 }
 
 .page .top h1 svg {
@@ -177,6 +201,7 @@ header .menu a {
 }
 
 .page .bottom .left button:hover {
+    
     background-color: rgb(140 140 115 / 1);
 
 }
