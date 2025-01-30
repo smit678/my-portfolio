@@ -15,7 +15,7 @@ var zoom = document.querySelectorAll("button ,h1");
 function ButtonEnter() {
   gsap.to(cursor, {
     scale: 4,
-    opacity : 0.8,
+    opacity : 0.5,
   });
 }
 
@@ -124,7 +124,7 @@ h1.innerHTML = clutter
 breackText()
 
 tl.from("h1 .a",{
-  x:100,
+  y:100,
   duration:0.5,
   delay:0.5,
   stagger:0.15,
@@ -224,22 +224,22 @@ gsap.to(texts, {
     trigger: ".page2",
 
     start: "top 50%",
-    end:"top 40%",
+    end:"top 30%",
     toggleActions: "play none none none",
     scrub:1,
   },
 });
 
 gsap.from(".para ,.serviText2",{
-  y:100,
+  y:30,
   opacity:0,
   stagger: 0.2,
   duration: 1.5,
   ease: "power4.out",
   scrollTrigger: {
     trigger: ".page2",
-    start: "top 38%",
-    end:"top 32%",
+    start: "top 28%",
+    end:"top 22%",
     scrub:1,
   },
 })
