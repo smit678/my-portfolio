@@ -9,13 +9,29 @@ body.addEventListener("mousemove", function (dets) {
   });
 });
 
+var visible = document.querySelector("body");
 
-var zoom = document.querySelectorAll("button ,h1");
+visible.addEventListener("mouseenter",show)
+visible.addEventListener("mouseleave",hide)
+
+function show(){
+  gsap.to(cursor, {
+    opacity : 1,
+  });
+}
+
+function hide(){
+  gsap.to(cursor, {
+    opacity : 0,
+  });
+}
+
+var zoom = document.querySelectorAll("button ,h1,p");
 
 function ButtonEnter() {
   gsap.to(cursor, {
     scale: 4,
-    opacity : 0.5,
+    opacity : 1,
   });
 }
 
@@ -124,7 +140,7 @@ h1.innerHTML = clutter
 breackText()
 
 tl.from("h1 .a",{
-  y:100,
+  y:30,
   duration:0.5,
   delay:0.5,
   stagger:0.15,
