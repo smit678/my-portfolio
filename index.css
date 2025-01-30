@@ -421,4 +421,17 @@ header .menu a {
  
 }  
 
-
+@media(width <= 700px){
+  .main{
+    display: none;
+  }
+  .worning {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    display: block;
+    display: flex;
+    align-items: center;
+    /* text-transform: uppercase; */
+  } 
+}
